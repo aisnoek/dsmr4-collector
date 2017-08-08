@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 /**
  * @param packet
  * @returns {}
@@ -98,7 +100,7 @@ function parser(packet) {
  * @private
  */
 function _parseDate(date) {
-  return date;
+  return moment(date, 'YYMMDDHHmmss').format();
 }
 
 /**
