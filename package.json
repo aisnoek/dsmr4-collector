@@ -1,0 +1,22 @@
+{
+  "name": "dsmr4-collector",
+  "version": "1.0.0",
+  "description": "Collects and supplies data from DSMR4.2 protocol using NodeJS.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aisnoek/dsmr4-collector.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aisnoek/dsmr4-collector/issues"
+  },
+  "homepage": "https://github.com/aisnoek/dsmr4-collector#readme",
+  "dependencies": {
+    "moment": "^2.18.1"
+  }
+}
