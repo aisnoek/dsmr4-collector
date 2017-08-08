@@ -13,13 +13,17 @@ function parser(packet) {
       rate_1: null,
       rate_2: null
     },
-    returned: {
+    produced: {
       rate_1: null,
       rate_2: null
     },
     realtime: {
       usage: null,
-      production: null
+      produced: null
+    },
+    realtime_tmp: {
+      usage: null,
+      produced: null
     },
     gas: {
       datetime: null,
@@ -41,8 +45,6 @@ function parser(packet) {
       case '96.13.1':
       case '96.13.0':
       case '31.7.0':
-      case '21.7.0':
-      case '22.7.0':
       case '24.1.0':
       case '96.1.0':
       default:
@@ -58,19 +60,25 @@ function parser(packet) {
         result.usage.rate_1 = _parseValue(line.value).value;
         break;
       case '2.8.1':
-        result.returned.rate_1 = _parseValue(line.value).value;
+        result.produced.rate_1 = _parseValue(line.value).value;
         break;
       case '1.8.2':
         result.usage.rate_2 = _parseValue(line.value).value;
         break;
       case '2.8.2':
-        result.returned.rate_2 = _parseValue(line.value).value;
+        result.produced.rate_2 = _parseValue(line.value).value;
         break;
       case '1.7.0':
         result.realtime.usage = _parseValue(line.value).value;
         break;
       case '2.7.0':
-        result.realtime.production = _parseValue(line.value).value;
+        result.realtime.produced = _parseValue(line.value).value;
+        break;
+      case '21.7.0':
+        result.realtime_tmp.usage = _parseValue(line.value).value;
+        break;
+      case '22.7.0':
+        result.realtime_tmp.produced = _parseValue(line.value).value;
         break;
       case '24.2.1':
         result.gas.datetime = _parseDate(line.value[0]);
