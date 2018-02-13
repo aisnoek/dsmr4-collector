@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/aisnoek/dsmr4-collector#readme",
   "dependencies": {
-    "moment": "^2.18.1"
+    "json-fs-store": "^1.0.1",
+    "moment": "^2.18.1",
+    "serialport": "^6.0.5"
   }
 }

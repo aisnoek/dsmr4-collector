@@ -1,6 +1,7 @@
 const port = '/dev/ttyUSB0'
 const SerialPort = require('serialport')
 const parser = require('./src/parser')
+const store = require('json-fs-store')('./statistics')
 
 var sp = new SerialPort(port, {
   baudRate: 115200,
@@ -24,7 +25,11 @@ sp.on('open', function () {
       var packet = buffer.substr(startCharPos, endCharPos - startCharPos);
       var parsed = parser(packet);
       
-      console.log(parsed);
+      store.add(parsed, function(err) {
+        if (err) {
+            console.error('json-store-error', err)
+	}
+      } );
 
       buffer = ''
     }
